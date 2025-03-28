@@ -416,25 +416,31 @@ public class interview {
         return prefix;
     }
 
-    // 22-2 longestSubstring
-    public static String longestSubstring(String s) {
-        int maxLength = 0;
-        int start = 0;
-        int maxStart = 0;
-        for (int end = 0; end < s.length(); end++) {
-            for (int i = start; i < end; i++) {
-                if (s.charAt(end) == s.charAt(i)) {
-                    start = i + 1;
-                    break;
-                }
+    // 22-3 longestSubstring2
+    public static String longestSubstring2(String s) {
+        // Set to store the characters in the current window
+        String set = "";
+        int left = 0;
+        String max = "";
+
+        // Loop through the string with the right pointer
+        for (int right = 0; right < s.length(); right++) {
+            // If character is already in the set, move the left pointer to shrink the
+            // window
+            // System.out.println(set);
+            while (set.contains(s.charAt(right) + "")) {
+                set = s.substring(left, right);
+                left++;
             }
-            int currLength = end - start + 1;
-            if (currLength > maxLength) {
-                maxLength = currLength;
-                maxStart = start;
-            }
+            if (max.length() <= set.length())
+                max = set + s.charAt(right);
+            // Add the current character to the set
+            set = set + s.charAt(right);
+
         }
-        return s.substring(maxStart, maxStart + maxLength);
+
+        return max;
+
     }
 
     // 23 subset
@@ -753,11 +759,36 @@ public class interview {
         return dp[maxDay];
     }
 
+    // 36 sort012
+    static void sort012(int[] arr) {
+        int n = arr.length;
+        int low = 0;
+        int mid = 0;
+        int high = n - 1;
+        while (mid <= high) {
+            if (arr[mid] == 0) {
+                swap(arr, mid, low);
+                mid++;
+                low++;
+            } else if (arr[mid] == 1) {
+                mid++;
+            } else {
+                swap(arr, mid, high);
+                high--;
+            }
+        }
+    }
+
+    static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    // 37
+
     public static void main(String[] args) {
-        char board[][] = { { 's', 'o', 's', 'o' },
-                { 's', 'o', 'o', 's' },
-                { 's', 's', 's', 's' } };
-        solution(board, "sos");
+        System.out.println(sumDigits(1897));
     }
 
 }
