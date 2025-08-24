@@ -22,5 +22,6 @@ public class GroupAnagrams {
         String[] lsts = { "eat", "tea", "tan", "ate", "nat", "bat" };
         List<List<String>> resls = groupAnagrams(lsts);
         System.out.println("All possible groups: " + resls);
+        // output: All possible groups: [[eat, tea, ate], [bat], [tan, nat]]
     }
 }

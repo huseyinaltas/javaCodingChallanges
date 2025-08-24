@@ -17,5 +17,6 @@ public class CheckPalindrome {
         String testStr1 = "madam";
         boolean isPalindrome = checkPalindrome(testStr1);
         System.out.println("Is \"" + testStr1 + "\" a palindrome? " + isPalindrome);
+        // output: Is "madam" a palindrome? true
     }
 }

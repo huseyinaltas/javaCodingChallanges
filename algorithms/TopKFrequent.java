@@ -27,5 +27,6 @@ public class TopKFrequent {
         int[] topK = topKFrequent(nums, k);
         System.out
                 .println("Top " + k + " frequent elements in " + Arrays.toString(nums) + ": " + Arrays.toString(topK));
+        // output: Top 2 frequent elements in [1, 1, 1, 2, 2, 3, 3, 3]: [1, 3]
     }
 }

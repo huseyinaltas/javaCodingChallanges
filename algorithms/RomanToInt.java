@@ -30,5 +30,6 @@ public class RomanToInt {
         String roman = "MCMXCIV";
         int result = romanToInt(roman);
         System.out.println("Roman numeral \"" + roman + "\" converted to integer: " + result);
+        // output: Roman numeral "MCMXCIV" converted to integer: 1994
     }
 }

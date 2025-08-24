@@ -24,5 +24,6 @@ public class RemoveDuplicates {
         int[] numx = { 1, 1, 1, 2, 2, 3 };
         int rrs = removeDuplicates(numx);
         System.out.println("All possible duplicate: " + rrs);
+        // output: All possible duplicate: 5
     }
 }

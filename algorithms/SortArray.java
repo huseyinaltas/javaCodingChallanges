@@ -26,5 +26,6 @@ public class SortArray {
         System.out.println("Before sorting: " + Arrays.toString(numsXX));
         sortArray(numsXX);
         System.out.println("After sorting: " + Arrays.toString(numsXX));
+        // output: Before sorting: [5, 2, 3, 1]
     }
 }

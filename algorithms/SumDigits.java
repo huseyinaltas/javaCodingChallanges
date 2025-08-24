@@ -17,5 +17,6 @@ public class SumDigits {
         int num = 123456;
         int total = sumDigits(num);
         System.out.println("Sum of digits of number " + num + ": " + total);
+        // output: Sum of digits of number 123456: 3
     }
 }

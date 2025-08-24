@@ -21,5 +21,7 @@ public class Subsets {
         int[] subsetInput = { 1, 2, 3 };
         List<List<Integer>> subsets = subsets(subsetInput);
         System.out.println("All possible subsets for input " + Arrays.toString(subsetInput) + ": " + subsets);
+        // output: All possible subsets for input [1, 2, 3]: [[], [1], [2], [1, 2],
+        // [3],[1, 3], [2, 3], [1, 2, 3]]
     }
 }
