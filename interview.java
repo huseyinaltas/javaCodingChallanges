@@ -174,12 +174,12 @@ public class interview {
         if (str1.length() != str2.length()) {
             return false;
         }
-        String[] arr1 = str1.split("");
-        String[] arr2 = str2.split("");
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
         Arrays.sort(arr1);
         Arrays.sort(arr2);
-        String lastStr1 = String.join("", arr1);
-        String lastStr2 = String.join("", arr2);
+        String lastStr1 = new String(arr1);
+        String lastStr2 = new String(arr2);
         System.out.println(lastStr1);
         System.out.println(lastStr2);
         return lastStr1.equals(lastStr2);
@@ -266,28 +266,25 @@ public class interview {
     }
 
     // 16 atbash
-    public static String atbash(String str) {
-        int a = 'a';
-        int z = 'z';
-        int A = 'A';
-        int Z = 'Z';
-        String newStr = "";
-        System.out.println(a + ":" + z + ":" + A + ":" + Z);
-        for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == ' ') {
-                newStr = newStr + " ";
-            } else if (Character.isLowerCase(str.charAt(i))) {
-                int now = str.charAt(i);
-                char newOne = (char) (z - (now - a));
-                newStr = newStr + newOne;
+    public static String atbash(String input) {
+        StringBuilder result = new StringBuilder();
+
+        for (char ch : input.toCharArray()) {
+            if (Character.isUpperCase(ch)) {
+                // A-Z → Z-A
+                char mirrored = (char) ('Z' - (ch - 'A'));
+                result.append(mirrored);
+            } else if (Character.isLowerCase(ch)) {
+                // a-z → z-a
+                char mirrored = (char) ('z' - (ch - 'a'));
+                result.append(mirrored);
             } else {
-                int now = str.charAt(i);
-                char newOne = (char) (Z - (now - A));
-                newStr = newStr + newOne;
+                // Keep non-letters unchanged
+                result.append(ch);
             }
         }
-        System.out.println(newStr);
-        return newStr;
+
+        return result.toString();
     }
 
     // 17 incDec
@@ -390,15 +387,17 @@ public class interview {
         romanMap.put('D', 500);
         romanMap.put('M', 1000);
 
-        int num = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (i + 1 < s.length() && romanMap.get(s.charAt(i)) < romanMap.get(s.charAt(i + 1))) {
-                num = num - romanMap.get(s.charAt(i));
-            } else {
-                num = num + romanMap.get(s.charAt(i));
-            }
+        int prev = 0;
+        int total = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            int curr = romanMap.get(s.charAt(i));
+            if (curr < prev)
+                total -= curr;
+            else
+                total += curr;
+            prev = curr;
         }
-        return num;
+        return total;
     }
 
     // 22 longestCommonPrefix
@@ -443,6 +442,23 @@ public class interview {
 
     }
 
+    // 4. Longest Substring Without Repeating Characters
+    public static int lengthOfLongestSubstring(String s) {
+        Set<Character> set = new HashSet<>();
+        int maxLen = 0, left = 0, right = 0;
+        while (right < s.length()) {
+            if (!set.contains(s.charAt(right))) {
+                set.add(s.charAt(right));
+                maxLen = Math.max(maxLen, right - left + 1);
+                right++;
+            } else {
+                set.remove(s.charAt(left));
+                left++;
+            }
+        }
+        return maxLen;
+    }
+
     // 23 subset
     // Input: nums = [1,2,3]
     // Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
@@ -455,9 +471,32 @@ public class interview {
                 List<Integer> subset = new ArrayList<>(result.get(i));
                 subset.add(num);
                 result.add(subset);
+                System.out.println(result);
+                System.out.println(subset);
             }
         }
         return result;
+    }
+
+    // 23-2 subset2
+    // int[] nums = { 1, 1, 1, 2, 2, 3, 3, 3 };
+    // int k = 2;
+    // int[] topK = topKFrequent(nums, k);
+    public static int[] topKFrequent(int[] nums, int k) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+        for (int num : nums) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+        List<Integer> topK = frequencyMap.entrySet()
+                .stream()
+                .sorted((a, b) -> b.getValue() - a.getValue())
+                .limit(k)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+        for (int i = 0; i < k; i++) {
+            nums[i] = topK.get(i);
+        }
+        return Arrays.copyOfRange(nums, 0, k);
     }
 
     // 24 climbStairs
@@ -779,16 +818,55 @@ public class interview {
         }
     }
 
-    static void swap(int[] arr, int i, int j) {
+    static int[] swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
+        return arr;
     }
 
     // 37
 
+    /**
+     * Example:
+     * Input: ["eat", "tea", "tan", "ate", "nat", "bat"]
+     * Output: [["eat","tea","ate"],["tan","nat"],["bat"]]
+     */
+    public List<List<String>> groupAnagrams2(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String str : strs) {
+            char[] cr = str.toCharArray();
+            Arrays.sort(cr);
+            String sortedStr = new String(cr);
+            if (!map.containsKey(sortedStr)) {
+                List<String> lst = new ArrayList<>();
+                map.put(sortedStr, lst);
+                continue;
+            }
+            map.get(sortedStr).add(sortedStr);
+        }
+        return new ArrayList<>(map.values());
+    }
+
+    // 38 twoSum
+    // Input: nums = [2,7,11,15], target = 9
+    // Output: [0,1]
+    // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i]))
+                return new int[] { map.get(nums[i]), i };
+            map.put(target - nums[i], i);
+        }
+        return new int[] {};
+    }
+
     public static void main(String[] args) {
-        System.out.println(sumDigits(1897));
+        String[] input = { "eat", "tea", "tan", "ate", "nat", "bat" };
+
+        System.out.println(groupAnagrams(input));
     }
 
 }
