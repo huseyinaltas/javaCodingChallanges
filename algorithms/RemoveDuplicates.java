@@ -21,9 +21,15 @@ public class RemoveDuplicates {
     }
 
     public static void main(String[] args) {
-        int[] numx = { 1, 1, 1, 2, 2, 3 };
-        int rrs = removeDuplicates(numx);
+        int[] numx = { 1, 2, 2, 3, 3, 3, 4, 4, 4 };
+        int rrs = removeDuplicates1(numx);
         System.out.println("All possible duplicate: " + rrs);
         // output: All possible duplicate: 5
+        // remove some duplicates in-place such that each unique element appears at most
+        // twice.
+    }
+
+    public static int removeDuplicates1(int[] nums) {
+        return 1;
     }
 }

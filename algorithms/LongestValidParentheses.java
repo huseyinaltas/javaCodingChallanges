@@ -23,9 +23,13 @@ public class LongestValidParentheses {
     }
 
     public static void main(String[] args) {
-        String testStr = "()";
-        int resultX = longestValidParentheses(testStr);
+        String testStr = "(()(()";
+        int resultX = longestValidParentheses1(testStr);
         System.out.println("Longest valid parentheses length for input \"" + testStr + "\": " + resultX);
         // output: Longest valid parentheses length for input "(()": 2
+    }
+
+    public static int longestValidParentheses1(String s) {
+        return -1;
     }
 }

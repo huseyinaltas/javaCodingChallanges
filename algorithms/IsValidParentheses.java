@@ -23,8 +23,13 @@ public class IsValidParentheses {
 
     public static void main(String[] args) {
         String testStr5 = "{[()]}";
-        boolean isValidResult = isValid(testStr5);
+        boolean isValidResult = isValid1(testStr5);
         System.out.println("Is \"" + testStr5 + "\" a valid bracket sequence? " + isValidResult);
         // output: Is "{[()]}" a valid bracket sequence? true
+    }
+
+    public static boolean isValid1(String s) {
+        return false;
+
     }
 }

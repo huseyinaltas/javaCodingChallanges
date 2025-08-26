@@ -1,5 +1,7 @@
 package algorithms;
 
+import java.util.List;
+
 public class ListNode {
     int val;
     ListNode next;
@@ -33,5 +35,9 @@ public class ListNode {
             reversedHead = reversedHead.next;
         }
         // output: Reversed linked list: 3 2 1
+    }
+
+    public ListNode reverseList1(ListNode head) {
+        return null;
     }
 }

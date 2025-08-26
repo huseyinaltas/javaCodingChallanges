@@ -19,7 +19,7 @@ public class ProductOfArrayExceptSelf {
 
     public static void main(String[] args) {
         int[] nums = { 1, 2, 3, 4 };
-        int[] result = productExceptSelf(nums);
+        int[] result = productExceptSelf1(nums);
         for (int r : result) {
             System.out.print(r + " ");
         }
@@ -30,5 +30,9 @@ public class ProductOfArrayExceptSelf {
         // - The product of all elements except self for index 2 is 1 * 2 * 4 = 8.
         // - The product of all elements except self for index 3 is 1 * 2 * 3 = 6.
         // Thus, the output array is [24, 12, 8, 6].
+    }
+
+    public static int[] productExceptSelf1(int[] nums) {
+        return null;
     }
 }

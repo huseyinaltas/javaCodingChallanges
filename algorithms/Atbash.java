@@ -19,8 +19,16 @@ public class Atbash {
 
     public static void main(String[] args) {
         String inputStr = "Hello, World!";
-        String result5 = atbash(inputStr);
+        String result5 = atbash1(inputStr);
         System.out.println("Atbash cipher for input \"" + inputStr + "\": " + result5);
         // output: Atbash cipher for input "Hello, World!": Svool, Dliow!
+        // int a = 'a';97
+        // int z = 'z';122
+        // int A = 'A';65 B 66
+        // int Z = 'Z';90 Y 89
+    }
+
+    public static String atbash1(String input) {
+        return null;
     }
 }

@@ -2,6 +2,7 @@ package algorithms;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 
 public class LengthOfLongestSubstring {
     public static int lengthOfLongestSubstring(String s) {
@@ -22,10 +23,14 @@ public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
         String input = "abcbbcbb";
-        int result = lengthOfLongestSubstring(input);
+        int result = lengthOfLongestSubstring1(input);
         System.out.println(
                 "Length of longest substring without repeating characters for input \"" + input + "\": " + result);
         // output: Length of longest substring without repeating characters for input
         // "abcbbcbb": 3
+    }
+
+    public static int lengthOfLongestSubstring1(String s) {
+        return 0;
     }
 }

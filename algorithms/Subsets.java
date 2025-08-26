@@ -24,4 +24,8 @@ public class Subsets {
         // output: All possible subsets for input [1, 2, 3]: [[], [1], [2], [1, 2],
         // [3],[1, 3], [2, 3], [1, 2, 3]]
     }
+
+    public static List<List<Integer>> subsets1(int[] nums) {
+        return null;
+    }
 }
