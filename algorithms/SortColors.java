@@ -7,26 +7,30 @@ public class SortColors {
         while (mid <= high) {
             if (nums[mid] == 0) {
                 // Swap nums[low] and nums[mid]
-                int temp = nums[low];
-                nums[low] = nums[mid];
-                nums[mid] = temp;
+                swap(nums, mid, low);
                 low++;
                 mid++;
             } else if (nums[mid] == 1) {
                 mid++;
             } else { // nums[mid] == 2
                 // Swap nums[mid] and nums[high]
-                int temp = nums[mid];
-                nums[mid] = nums[high];
-                nums[high] = temp;
+                swap(nums, high, mid);
                 high--;
             }
         }
     }
 
+    static void swap(int arr[], int a, int b) {
+        if (a != b) {
+            int temp = arr[a];
+            arr[a] = arr[b];
+            arr[b] = temp;
+        }
+    }
+
     public static void main(String[] args) {
         int[] nums = { 2, 0, 2, 1, 1, 0 };
-        sortColors1(nums);
+        sortColors(nums);
 
         System.out.print("Sorted Colors: ");
         for (int num : nums) {
