@@ -30,10 +30,16 @@ public class SortColors {
 
     public static void main(String[] args) {
         int[] nums = { 2, 0, 2, 1, 1, 0 };
+        int[] nums1 = { 2, 0, 2, 1, 1, 0 };
         sortColors(nums);
+        sortColors1(nums1);
 
         System.out.print("Sorted Colors: ");
         for (int num : nums) {
+            System.out.print(num + " ");
+        }
+        System.out.print("Sorted Colors2: ");
+        for (int num : nums1) {
             System.out.print(num + " ");
         }
         // Output: Sorted Colors: 0 0 1 1 2 2
@@ -46,6 +52,10 @@ public class SortColors {
     }
 
     public static void sortColors1(int[] nums) {
+
+    }
+
+    static void swap1(int[] arr, int a, int b) {
 
     }
 }

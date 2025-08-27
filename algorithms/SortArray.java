@@ -22,14 +22,33 @@ public class SortArray {
     }
 
     public static void main(String[] args) {
-        int[] numsXX = { 5, 2, 3, 1 };
-        System.out.println("Before sorting: " + Arrays.toString(numsXX));
-        sortArray1(numsXX);
-        System.out.println("After sorting: " + Arrays.toString(numsXX));
+        int[] nums = { 5, 2, 3, 1 };
+        int[] nums1 = { 5, 2, 3, 1 };
+        System.out.println("Before sorting: " + Arrays.toString(nums));
+        System.out.println("Before sorting: " + Arrays.toString(nums1));
+        sortArray(nums);
+        sortArray1(nums1);
+        System.out.println("After sorting: " + Arrays.toString(nums));
+        System.out.println("After sorting: " + Arrays.toString(nums1));
         // output: Before sorting: [5, 2, 3, 1]
     }
 
     public static void sortArray1(int[] nums) {
+        boolean swapped = false;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                if (nums[i] > nums[j]) {
+                    int temp = nums[i];
+                    nums[i] = nums[j];
+                    nums[j] = temp;
+                    swapped = true;
+                }
+
+            }
+            if (!swapped)
+                break;
+
+        }
 
     }
 }

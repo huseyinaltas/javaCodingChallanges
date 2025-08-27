@@ -20,7 +20,9 @@ public class Subsets {
     public static void main(String[] args) {
         int[] subsetInput = { 1, 2, 3 };
         List<List<Integer>> subsets = subsets(subsetInput);
+        List<List<Integer>> subsets1 = subsets1(subsetInput);
         System.out.println("All possible subsets for input " + Arrays.toString(subsetInput) + ": " + subsets);
+        System.out.println("All possible subsets for input " + Arrays.toString(subsetInput) + ": " + subsets1);
         // output: All possible subsets for input [1, 2, 3]: [[], [1], [2], [1, 2],
         // [3],[1, 3], [2, 3], [1, 2, 3]]
     }

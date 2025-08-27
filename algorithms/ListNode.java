@@ -28,7 +28,7 @@ public class ListNode {
         node1.next = node2;
         node2.next = node3;
 
-        ListNode reversedHead = node1.reverseList(node1);
+        ListNode reversedHead = node1.reverseList1(node1);
         System.out.print("Reversed linked list: ");
         while (reversedHead != null) {
             System.out.print(reversedHead.val + " ");

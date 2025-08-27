@@ -20,8 +20,10 @@ public class GroupAnagrams {
 
     public static void main(String[] args) {
         String[] lsts = { "eat", "tea", "tan", "ate", "nat", "bat" };
-        List<List<String>> resls = groupAnagrams1(lsts);
+        List<List<String>> resls = groupAnagrams(lsts);
+        List<List<String>> resls1 = groupAnagrams1(lsts);
         System.out.println("All possible groups: " + resls);
+        System.out.println("All possible groups: " + resls1);
         // output: All possible groups: [[eat, tea, ate], [bat], [tan, nat]]
     }
 

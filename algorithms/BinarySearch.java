@@ -24,9 +24,16 @@ public class BinarySearch {
         int[] nums = { -1, 0, 3, 5, 9, 12 };
         int target = 9;
 
-        int result = search1(nums, target);
+        int result = search(nums, target);
+        int result1 = search1(nums, target);
         if (result != -1) {
             System.out.println("Target " + target + " found at index: " + result);
+        } else {
+            System.out.println("Target " + target + " not found in the array.");
+        }
+
+        if (result1 != -1) {
+            System.out.println("Target " + target + " found at index: " + result1);
         } else {
             System.out.println("Target " + target + " not found in the array.");
         }

@@ -23,9 +23,12 @@ public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
         String input = "abcbbcbb";
-        int result = lengthOfLongestSubstring1(input);
+        int result = lengthOfLongestSubstring(input);
+        int result1 = lengthOfLongestSubstring1(input);
         System.out.println(
                 "Length of longest substring without repeating characters for input \"" + input + "\": " + result);
+        System.out.println(
+                "Length of longest substring without repeating characters for input \"" + input + "\": " + result1);
         // output: Length of longest substring without repeating characters for input
         // "abcbbcbb": 3
     }

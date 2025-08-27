@@ -28,8 +28,10 @@ public class RomanToInt {
 
     public static void main(String[] args) {
         String roman = "MCMXCIV";
-        int result = romanToInt1(roman);
+        int result = romanToInt(roman);
+        int result1 = romanToInt1(roman);
         System.out.println("Roman numeral \"" + roman + "\" converted to integer: " + result);
+        System.out.println("Roman numeral \"" + roman + "\" converted to integer: " + result1);
         // output: Roman numeral "MCMXCIV" converted to integer: 1994
     }
 

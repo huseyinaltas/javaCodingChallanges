@@ -14,8 +14,11 @@ public class LongestCommonPrefix {
 
     public static void main(String[] args) {
         String[] testStrs = { "flower", "flow", "flight" };
-        String prefix = longestCommonPrefix1(testStrs);
+        String prefix = longestCommonPrefix(testStrs);
+        String prefix1 = longestCommonPrefix1(testStrs);
         System.out.println("Longest common prefix for " + java.util.Arrays.toString(testStrs) + ": \"" + prefix + "\"");
+        System.out
+                .println("Longest common prefix for " + java.util.Arrays.toString(testStrs) + ": \"" + prefix1 + "\"");
         // output: Longest common prefix for ["flower", "flow", "flight"]: "fl"
     }
 

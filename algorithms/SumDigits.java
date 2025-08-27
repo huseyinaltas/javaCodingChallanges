@@ -15,8 +15,10 @@ public class SumDigits {
 
     public static void main(String[] args) {
         int num = 123456;
-        int total = sumDigits1(num);
+        int total = sumDigits(num);
+        int total1 = sumDigits1(num);
         System.out.println("Sum of digits of number " + num + ": " + total);
+        System.out.println("Sum of digits of number " + num + ": " + total1);
         // output: Sum of digits of number 123456: 3
     }
 
