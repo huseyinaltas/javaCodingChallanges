@@ -1,28 +1,34 @@
-const languages = require("./lanList.json");
+const translations = require("./translations.json");
 const fs = require("fs");
 const { translate } = require("./writeTranslations");
 
 let execute = async () => {
-  let num = 0;
-  let lans = [];
-  for (const language of languages) {
-    for (const setLan of languages) {
-      if (language.code == "en") {
-        language[setLan.code] = setLan.lang;
-      } else {
-        response = await translate("en", language.code, setLan.lang);
-        console.log(num + ": ", setLan.code, language.code, response);
-        language[setLan.code] = response;
-      }
-      num++;
+  for (const langObj of translations) {
+    let original =
+      "You have been reported ${reportedCount} times for breaking rules.";
+    if (langObj.code !== "en") {
+      original = await translate("en", langObj.code, original);
     }
+    if (!langObj.translations) {
+      langObj.translations = {};
+    }
+    console.log(
+      `Adding type message translation for ${langObj.lang}: ${original}`
+    );
+    langObj.translations.reportedTimes = original;
   }
-  fs.writeFile("lanListNew.json", JSON.stringify(languages, null, 2), (err) => {
-    if (err) {
-      console.error("Error writing to file:", err);
-    } else {
-      console.log("Response successfully written to 'response.json'");
+  fs.writeFile(
+    "translations.json",
+    JSON.stringify(translations, null, 2),
+    (err) => {
+      if (err) {
+        console.error("Error writing to file:", err);
+      } else {
+        console.log(
+          "changeusername translations successfully added to 'translations.json'"
+        );
+      }
     }
-  });
+  );
 };
 execute();

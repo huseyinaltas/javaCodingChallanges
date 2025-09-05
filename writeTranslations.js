@@ -1,7 +1,5 @@
 const axios = require("axios");
 const fs = require("fs");
-const res = require("./response.json");
-const languages = require("./languages.json");
 
 let result = "";
 translate = async (source, language, sentence) => {
