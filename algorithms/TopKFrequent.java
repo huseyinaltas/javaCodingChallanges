@@ -12,7 +12,7 @@ public class TopKFrequent {
                 .stream()
                 .sorted((a, b) -> b.getValue() - a.getValue())
                 .limit(k)
-                .map(Map.Entry::getKey)
+                .map(entry -> entry.getKey())
                 .toList();
         int[] result = new int[k];
         for (int i = 0; i < k; i++) {
